@@ -6,17 +6,16 @@ const MBdiv = styled.div`
     height: 400px;
     border-radius: 10px;
     border: solid 1px black;
+    /* align-items: center; */
+    /* justify-content: center; */
     background-color: aliceblue;
     margin: 10px;
 `;
 
-export default function Banner1() {
+export default function MainBanner() {
     return (
         <>
-            <MBdiv>
-                배너1 입니다
-                <div>배너1 - 항공권 검색 바로 가기</div>
-            </MBdiv>
+            <MBdiv>메인 배너 입니다 섹션 배경 넣고 볼더 지우기</MBdiv>
         </>
     );
 }

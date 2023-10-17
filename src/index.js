@@ -5,7 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Home from './pages/Home';
-import Airline from './pages/Airline';
+import AirlineSearch from './pages/AirlineSearch';
 import Exchange from './pages/Exchange';
 import NotFound from './pages/404';
 
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
         errorElement: <NotFound />,
         children: [
             { index: true, path: '/', element: <Home /> },
-            { path: '/airline', element: <Airline /> },
+            { path: '/airline', element: <AirlineSearch /> },
             { path: '/exchange', element: <Exchange /> },
         ],
     },

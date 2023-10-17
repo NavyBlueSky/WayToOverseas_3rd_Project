@@ -1,22 +1,22 @@
 import React from 'react';
 import styled from 'styled-components';
 
-const MBdiv = styled.div`
+const Exdiv = styled.div`
     width: 80vw;
-    height: 400px;
+    height: 200px;
     border-radius: 10px;
     border: solid 1px black;
     background-color: aliceblue;
     margin: 10px;
 `;
 
-export default function Banner1() {
+export default function ExchangeBanner() {
     return (
         <>
-            <MBdiv>
-                배너1 입니다
-                <div>배너1 - 항공권 검색 바로 가기</div>
-            </MBdiv>
+            <Exdiv>
+                <h1>환율 계산기 입니다</h1>
+                <div>환율 배너 - 설명</div>
+            </Exdiv>
         </>
     );
 }
