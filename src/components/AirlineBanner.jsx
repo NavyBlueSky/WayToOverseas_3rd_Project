@@ -2,12 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 
 const AirMdiv = styled.div`
-    width: 80vw;
+    width: 100%;
     height: 300px;
     border-radius: 10px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     background-color: aliceblue;
-    margin: 10px;
+    /* margin: 10px; */
 `;
 
 export default function AirlineBanner() {

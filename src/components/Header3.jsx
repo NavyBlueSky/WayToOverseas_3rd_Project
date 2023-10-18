@@ -1,11 +1,11 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const StyledHeader = styled.header`
+const StyledHeader = styled.div`
     background-color: lightsteelblue;
     width: 100%;
     height: 110px;
-    padding: 10px 12px 8px 12px;
+    /* padding: 10px 12px 8px 12px; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -25,10 +25,12 @@ const NavMenu = styled.ul`
     padding: 5px 15px;
 
     li {
+        border-top: solid 1px transparent;
         &:hover {
             cursor: pointer;
             /* background: #44a8f4; */
             /* border-radius: 4px; */
+            /* border-top: solid 1px black; */
             border-bottom: solid 1px #d85a4d;
         }
     }
@@ -52,7 +54,7 @@ export default function Header3() {
         <>
             <StyledHeader>
                 <NavMenu>
-                    <li>
+                    <li className="">
                         <Link to={'/airline'} className="nav-menu-list">
                             항공편 검색
                         </Link>

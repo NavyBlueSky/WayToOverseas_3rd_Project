@@ -5,8 +5,12 @@ const MBdiv = styled.div`
     width: 80vw;
     height: 400px;
     border-radius: 10px;
-    border: solid 1px black;
-    background-color: aliceblue;
+    /* border: solid 1px black; */
+    /* background-color: aliceblue; */
+    background-image: url(/img/Airline2.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
     margin: 10px;
 `;
 

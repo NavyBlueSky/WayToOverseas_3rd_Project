@@ -8,13 +8,15 @@ const HomeSection = styled.section`
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-image: url(/img/INC3.png);
+    background-repeat: no-repeat;
+    background-size: cover;
 `;
 
 export default function Home() {
     return (
         <>
             <HomeSection>
-                홈 섹션 배경 이미지 넣기
                 <MainBanner />
                 <Banner1 />
                 <Banner2 />

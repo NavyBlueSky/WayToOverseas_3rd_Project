@@ -1,5 +1,10 @@
 import React, { useState } from 'react';
 import Airline from '../components/Airline';
+import styled from 'styled-components';
+
+const SelectAirline = styled.div`
+    margin: 30px;
+`;
 
 export default function AirlineSelect() {
     const [continentValue, setContinentValue] = useState('');
@@ -14,13 +19,20 @@ export default function AirlineSelect() {
 
         // 선택한 대륙에 따라 공항 옵션을 업데이트
         if (selectedValue === 'AS') {
-            setAirportOptions(['공항 선택', '도쿄 하네다 공항', '오사카 간사이 공항', '후쿠오카 공항', '홍콩 국제 공항']);
+            setAirportOptions(['공항 선택', '도쿄 하네다 공항', '오사카 간사이 공항', '후쿠오카 공항', '홍콩 국제 공항', '상하이 푸둥 국제 공항']);
         } else if (selectedValue === 'EU') {
-            setAirportOptions(['공항 선택', '영국', '프랑스', '스페인']);
+            setAirportOptions(['공항 선택', '뮌헨 국제 공항', '취리히 국제 공항', '파리 샤를 드골 국제 공항', '마드리드 바라하스 국제 공항']);
         } else if (selectedValue === 'AM') {
-            setAirportOptions(['공항 선택', '미국', '캐나다', '아르헨티나']);
+            setAirportOptions([
+                '공항 선택',
+                '로스앤젤레스 국제공항',
+                '뉴욕 스튜어트 국제공항',
+                '마이애미 국제공항',
+                '밴쿠버 국제공항',
+                '리우데자네이루 갈레앙 국제공항',
+            ]);
         } else if (selectedValue === 'OC') {
-            setAirportOptions(['공항 선택', '호주', '뉴질랜드']);
+            setAirportOptions(['공항 선택', '시드니 국제공항', '오클랜드 국제공항']);
         }
     };
 
@@ -36,6 +48,34 @@ export default function AirlineSelect() {
             setAirportCode('HND');
         } else if (airportValue === '후쿠오카 공항') {
             setAirportCode('FUK');
+        } else if (airportValue === '오사카 간사이 공항') {
+            setAirportCode('KIX');
+        } else if (airportValue === '홍콩 국제 공항') {
+            setAirportCode('HKG');
+        } else if (airportValue === '상하이 푸둥 국제 공항') {
+            setAirportCode('PVG');
+        } else if (airportValue === '뮌헨 국제 공항') {
+            setAirportCode('MUC');
+        } else if (airportValue === '취리히 국제 공항') {
+            setAirportCode('ZRH');
+        } else if (airportValue === '파리 샤를 드골 국제 공항') {
+            setAirportCode('CDG');
+        } else if (airportValue === '마드리드 바라하스 국제 공항') {
+            setAirportCode('MAD');
+        } else if (airportValue === '로스앤젤레스 국제공항') {
+            setAirportCode('LAX');
+        } else if (airportValue === '뉴욕 스튜어트 국제공항') {
+            setAirportCode('SWF');
+        } else if (airportValue === '마이애미 국제공항') {
+            setAirportCode('MIA');
+        } else if (airportValue === '밴쿠버 국제공항') {
+            setAirportCode('YVR');
+        } else if (airportValue === '리우데자네이루 갈레앙 국제공항') {
+            setAirportCode('GIG');
+        } else if (airportValue === '시드니 국제공항') {
+            setAirportCode('SYD');
+        } else if (airportValue === '오클랜드 국제공항') {
+            setAirportCode('AKL');
         }
         // 선택한 공항 값 호출
     };

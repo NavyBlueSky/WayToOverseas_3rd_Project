@@ -5,10 +5,15 @@ const MBdiv = styled.div`
     width: 80vw;
     height: 400px;
     border-radius: 10px;
-    border: solid 1px black;
+    /* border: solid 1px black; */
     /* align-items: center; */
     /* justify-content: center; */
-    background-color: aliceblue;
+    /* background-color: aliceblue; */
+    background-image: url(/img/INC1.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    opacity: 1;
     margin: 10px;
 `;
 
