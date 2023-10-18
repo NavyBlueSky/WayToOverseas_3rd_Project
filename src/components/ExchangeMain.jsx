@@ -5,14 +5,14 @@ import styled from 'styled-components';
 const ExchangeSection = styled.div`
     flex-direction: column;
     width: 50vw;
-    height: 400px;
+    height: 500px;
     border-radius: 10px;
     background-color: aliceblue;
     margin: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
-    @media screen and (max-width: 1000px) {
+    @media screen and (max-width: 1100px) {
         width: 80%;
     }
 `;
@@ -45,6 +45,17 @@ const ResultEx = styled.div`
 const ResultCom = styled.div`
     margin: 10px;
     text-align: center;
+`;
+
+const ResultCom2 = styled.div`
+    height: auto;
+    width: auto;
+    margin: 10px;
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #3954a3;
+    /* box-sizing: border-box; */
+    border-radius: 10px;
 `;
 
 const SelectDiv = styled.div``;
@@ -172,10 +183,10 @@ export default function ExchangeMain() {
 
                 <ResultEx>
                     {/*{isAmount} {fromCurrency} 은/는*/}
-                    <ResultCom>
+                    <ResultCom2>
                         결과 금액(단위) : {convertCurrency()}({toCurrency})
-                    </ResultCom>
-
+                    </ResultCom2>
+                    <br />
                     <ResultCom>※본 서비스에서 제공되는 환율은 전일 기준입니다.</ResultCom>
                     <ResultCom>환율 정보 제공 - Fawaz Ahmed</ResultCom>
                 </ResultEx>

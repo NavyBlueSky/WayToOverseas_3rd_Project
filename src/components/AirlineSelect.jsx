@@ -2,6 +2,34 @@ import React, { useState } from 'react';
 import Airline from '../components/Airline';
 import styled from 'styled-components';
 
+const MainAir = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const Textdiv = styled.div`
+    padding: 8px;
+`;
+
+const SelectMain = styled.div`
+    padding: 9px;
+
+    flex-direction: column;
+    width: 50vw;
+    height: 450px;
+    border-radius: 10px;
+    background-color: aliceblue;
+    margin: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 1100px) {
+        width: 80%;
+    }
+`;
+
 const SelectAirline = styled.select`
     width: 200px;
     border: 1px solid #3954a3;
@@ -28,6 +56,7 @@ const SelectAirline = styled.select`
 
 const SearchButton = styled.button`
     display: inline-block;
+    margin: 5px;
     padding: 10px 20px;
     font-size: 1rem;
     font-weight: bold;
@@ -122,26 +151,33 @@ export default function AirlineSelect() {
 
     console.log('Selected Airport:', airportValue, airportCode);
     return (
-        <div>
-            <SelectAirline id="continentSelect" value={continentValue} onChange={handleContinentChange}>
-                <option>대륙 선택</option>
-                <option value="AS">아시아</option>
-                <option value="EU">유럽</option>
-                <option value="AM">아메리카</option>
-                <option value="OC">오세아니아</option>
-            </SelectAirline>
-            <SelectAirline id="airportSelect" value={airportValue} onChange={handleAirportChange}>
-                {airportOptions.map((option, index) => (
-                    <option key={index} value={option}>
-                        {option}
-                    </option>
-                ))}
-            </SelectAirline>
-            <SearchButton onClick={handleSearchClick}>Search</SearchButton>
+        <MainAir>
+            <SelectMain>
+                <div></div>
+                <h1>인천국제공항 여객기 정기운항편 현황 조회</h1>
+                <Textdiv>인천공항에서 출발 후 도착하는 공항의 취항 여부와 편명을 제공합니다. </Textdiv>
+                <Textdiv>현재 조회되는 정보는 2023년 3월 26일부터 2023년 10월 28일까지의 운행현황입니다. </Textdiv>
+                <Textdiv>운행편 업데이트는 6개월 씩 연 2회 진행됩니다.</Textdiv>
 
-            <div>
-                <Airline airportCodeT={airportCode} />
-            </div>
-        </div>
+                <Textdiv>상세한 항공권 조회 검색은 지원되지 않습니다.</Textdiv>
+                <SelectAirline id="continentSelect" value={continentValue} onChange={handleContinentChange}>
+                    <option>대륙 선택</option>
+                    <option value="AS">아시아</option>
+                    <option value="EU">유럽</option>
+                    <option value="AM">아메리카</option>
+                    <option value="OC">오세아니아</option>
+                </SelectAirline>
+                <SelectAirline id="airportSelect" value={airportValue} onChange={handleAirportChange}>
+                    {airportOptions.map((option, index) => (
+                        <option key={index} value={option}>
+                            {option}
+                        </option>
+                    ))}
+                </SelectAirline>
+                <SearchButton onClick={handleSearchClick}>Search</SearchButton>
+                <Textdiv>정보 제공 - 인천국제공항 공공데이터</Textdiv>
+            </SelectMain>
+            <Airline airportCodeT={airportCode} />
+        </MainAir>
     );
 }

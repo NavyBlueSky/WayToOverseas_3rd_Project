@@ -3,30 +3,102 @@ import React, { useState, useEffect } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 import styled from 'styled-components';
 
-let week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
-let signal = [];
+// let week = ['sunday', 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
+
+const PrintAir = styled.div`
+    justify-content: center;
+    align-items: center;
+`;
+
+const TopAirline = styled.div`
+    width: 130px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* margin-left: 30px; */
+`;
+
+const TopLogo = styled.div`
+    margin: 3px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: grey;
+`;
+
+const TopLogoK = styled.div`
+    margin: 3px;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-image: url(/img/KoreanAir.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+`;
+
+const TopName = styled.div`
+    margin: 3px;
+`;
+
+const MiddleMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const MiddleText = styled.div`
+    padding: 7px;
+`;
+
+const WeekDivMain = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+`;
+
+const WeekName = styled.div`
+    padding: 7px;
+`;
 
 const GreenLight = styled.div`
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: green;
 `;
 
 const RedLight = styled.div`
-    width: 10px;
-    height: 10px;
+    width: 12px;
+    height: 12px;
     border-radius: 50%;
     background-color: red;
 `;
 
 const Resultdiv = styled.div`
     background-color: aliceblue;
-    width: 80vw;
-    height: auto;
+    width: 90vw;
+    height: 150px;
     border-radius: 10px;
     /* border: solid 1px black; */
     margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    @media screen and (min-width: 1100px) {
+        width: 750px;
+    }
+`;
+
+const WeekDiv = styled.div`
+    display: flex;
+    flex-direction: row;
+    div {
+        margin: 3px;
+    }
 `;
 
 export default function Airline(props) {
@@ -72,28 +144,33 @@ export default function Airline(props) {
         //     }
         // }
         return (
-            <div className="datalist">
+            <PrintAir className="datalist">
                 {sampledatas.map((sampledata) => (
                     <Resultdiv className="datali" key={uuidv4()}>
-                        공항이름:{sampledata.airport}
-                        <br />
-                        정기운항시작일:{sampledata.firstdate}
-                        <br />
-                        정기운항종료일:{sampledata.lastdate}
-                        <br />
-                        항공사명:{sampledata.airline}
-                        <br />
-                        연도:{sampledata.season}
-                        <br />
-                        편명:{sampledata.flightid}
-                        <br />
-                        요일별 취항여부: {sampledata.sunday}/{sampledata.monday}/{sampledata.tuesday}/{sampledata.wednesday}/{sampledata.thursday}/
-                        {sampledata.friday}/{sampledata.saturday}
-                        <br />일{sampledata.sunday === 'Y' ? <GreenLight /> : <RedLight />}
-                        <br />
+                        <TopAirline>
+                            {sampledata.airline === '대한항공' ? <TopLogoK /> : <TopLogo />}
+                            <TopName>{sampledata.airline}</TopName>
+                        </TopAirline>
+                        <MiddleMain>
+                            <MiddleText>도착지 : {sampledata.airport}</MiddleText>
+                            {/* 항공사명 */}
+                            <MiddleText> 편명 : {sampledata.flightid}</MiddleText>
+                        </MiddleMain>
+                        <WeekDivMain>
+                            <WeekName>요일별 취항 여부▼</WeekName>
+                            <WeekDiv>
+                                <div>일{sampledata.sunday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>월{sampledata.monday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>화{sampledata.tuesday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>수{sampledata.wednesday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>목{sampledata.thursday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>금{sampledata.friday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                                <div>토{sampledata.saturday === 'Y' ? <GreenLight /> : <RedLight />}</div>
+                            </WeekDiv>
+                        </WeekDivMain>
                     </Resultdiv>
                 ))}
-            </div>
+            </PrintAir>
         );
     }
 

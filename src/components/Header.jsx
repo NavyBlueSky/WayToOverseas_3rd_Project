@@ -22,6 +22,9 @@ const Logo = styled.div`
     width: 140px;
     height: 110px;
     margin: 0 0 0 100px;
+    @media screen and (min-width: 1100px) {
+        margin: 0 0 0 300px;
+    }
 `;
 
 const NavUl = styled.ul`
@@ -29,6 +32,9 @@ const NavUl = styled.ul`
     list-style: none;
     margin: 0 100px 0 0;
     padding: 0;
+    @media screen and (min-width: 1100px) {
+        margin: 0 300px 0 0;
+    }
 `;
 
 const NavLi = styled.li`
