@@ -15,14 +15,18 @@ const Logo = styled.div`
     cursor: pointer;
     display: flex;
     align-items: center;
-    background-image: url(/img/HeaderLogo.png);
+    background-image: url(/img/MainLogo.png);
+    width: 270px;
+    height: 120px;
+    /* background-image: url(/img/HeaderLogo.png); */
+    /* width: 140px;
+    height: 110px; */
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-    width: 140px;
-    height: 110px;
+
     margin: 0 0 0 100px;
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 1300px) {
         margin: 0 0 0 300px;
     }
 `;
@@ -32,7 +36,7 @@ const NavUl = styled.ul`
     list-style: none;
     margin: 0 100px 0 0;
     padding: 0;
-    @media screen and (min-width: 1100px) {
+    @media screen and (min-width: 1300px) {
         margin: 0 300px 0 0;
     }
 `;

@@ -20,7 +20,7 @@ const SelectMain = styled.div`
     width: 50vw;
     height: 450px;
     border-radius: 10px;
-    background-color: aliceblue;
+    background-color: #b3cde4;
     margin: 30px;
     display: flex;
     justify-content: center;

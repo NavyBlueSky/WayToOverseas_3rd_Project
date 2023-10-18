@@ -79,7 +79,7 @@ const RedLight = styled.div`
 `;
 
 const Resultdiv = styled.div`
-    background-color: aliceblue;
+    background-color: #b3cde4;
     width: 90vw;
     height: 150px;
     border-radius: 10px;

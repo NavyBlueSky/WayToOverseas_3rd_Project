@@ -19,7 +19,6 @@ export default function Home() {
             <HomeSection>
                 <MainBanner />
                 <Banner1 />
-                <Banner2 />
             </HomeSection>
         </>
     );
