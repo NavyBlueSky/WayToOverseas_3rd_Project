@@ -2,8 +2,48 @@ import React, { useState } from 'react';
 import Airline from '../components/Airline';
 import styled from 'styled-components';
 
-const SelectAirline = styled.div`
-    margin: 30px;
+const SelectAirline = styled.select`
+    width: 200px;
+    border: 1px solid #3954a3;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    justify-content: space-between;
+    margin: 5px;
+    :focus {
+        border: 1px solid #f1f1f1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        outline: 1.5px solid #3954a3;
+        border-radius: 10px;
+    }
+    @media screen {
+    }
+`;
+
+const SearchButton = styled.button`
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 5px;
+    border: 1px solid #3954a3;
+    transition: background-color 0.3s, color 0.3s;
+    background-color: white;
+    color: #3954a3;
+    border-color: #3954a3;
+    :hover {
+        background-color: #3954a3;
+        color: #fff;
+    }
 `;
 
 export default function AirlineSelect() {
@@ -83,21 +123,21 @@ export default function AirlineSelect() {
     console.log('Selected Airport:', airportValue, airportCode);
     return (
         <div>
-            <select id="continentSelect" value={continentValue} onChange={handleContinentChange}>
+            <SelectAirline id="continentSelect" value={continentValue} onChange={handleContinentChange}>
                 <option>대륙 선택</option>
                 <option value="AS">아시아</option>
                 <option value="EU">유럽</option>
                 <option value="AM">아메리카</option>
                 <option value="OC">오세아니아</option>
-            </select>
-            <select id="airportSelect" value={airportValue} onChange={handleAirportChange}>
+            </SelectAirline>
+            <SelectAirline id="airportSelect" value={airportValue} onChange={handleAirportChange}>
                 {airportOptions.map((option, index) => (
                     <option key={index} value={option}>
                         {option}
                     </option>
                 ))}
-            </select>
-            <button onClick={handleSearchClick}>Search</button>
+            </SelectAirline>
+            <SearchButton onClick={handleSearchClick}>Search</SearchButton>
 
             <div>
                 <Airline airportCodeT={airportCode} />

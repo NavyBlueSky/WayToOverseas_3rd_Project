@@ -10,6 +10,12 @@ const StyledHeader = styled.div`
     align-items: center;
     justify-content: center;
     .nav_logo {
+        width: 100px;
+        height: 100px;
+        background-image: url(/img/HeaderLogo.png);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: center;
         padding: 0 12px;
         .nav-logo-link {
             text-decoration: none;
@@ -34,7 +40,13 @@ const NavMenu = styled.ul`
             border-bottom: solid 1px #d85a4d;
         }
     }
-    .nav-menu-list {
+    .nav-menu-list1 {
+        text-decoration: none;
+        color: white;
+        display: block;
+        padding: 10px 15px;
+    }
+    .nav-menu-list2 {
         text-decoration: none;
         color: white;
         display: block;
@@ -55,17 +67,16 @@ export default function Header3() {
             <StyledHeader>
                 <NavMenu>
                     <li className="">
-                        <Link to={'/airline'} className="nav-menu-list">
+                        <Link to={'/airline'} className="nav-menu-list1">
                             항공편 검색
                         </Link>
                     </li>
-                    <MainLogo className="nav_logo">
-                        <Link to={'/'} className="nav-logo-link">
-                            로고자리
-                        </Link>
-                    </MainLogo>
+                    <Link to={'/'} className="nav-logo-link">
+                        <MainLogo className="nav_logo" />
+                    </Link>
+
                     <li>
-                        <Link to={'/exchange'} className="nav-menu-list">
+                        <Link to={'/exchange'} className="nav-menu-list2">
                             환율 계산기
                         </Link>
                     </li>

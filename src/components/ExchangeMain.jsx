@@ -8,10 +8,20 @@ const ExchangeSection = styled.div`
     height: 400px;
     border-radius: 10px;
     background-color: aliceblue;
-    margin: 30px;
+    margin: 100px;
     display: flex;
     justify-content: center;
     align-items: center;
+    @media screen and (max-width: 1000px) {
+        width: 80%;
+    }
+`;
+
+const ExLogo = styled.div`
+    width: 170px;
+    height: 115px;
+    background-image: url(/img/ExchangeLogo.png);
+    background-size: cover;
 `;
 
 const Exdiv = styled.div`
@@ -28,11 +38,62 @@ const ToEx = styled.div`
     margin: 10px;
 `;
 
-const ResultEx = styled.div``;
+const ResultEx = styled.div`
+    justify-content: center;
+`;
+
+const ResultCom = styled.div`
+    margin: 10px;
+    text-align: center;
+`;
 
 const SelectDiv = styled.div``;
 
-const SelectEx = styled.select``;
+const SelectEx = styled.select`
+    width: 200px;
+    border: 1px solid #3954a3;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    justify-content: space-between;
+    margin: 10px;
+    :focus {
+        border: 1px solid #f1f1f1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        outline: 1.5px solid #3954a3;
+        border-radius: 10px;
+    }
+    @media screen {
+    }
+`;
+
+const InputM = styled.input`
+    width: 200px;
+    border: 1px solid #3954a3;
+    box-sizing: border-box;
+    border-radius: 10px;
+    padding: 12px 13px;
+    /* font-family: 'Roboto'; */
+    font-style: normal;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    justify-content: space-between;
+    margin: 10px;
+    :focus {
+        border: 1px solid #f1f1f1;
+        box-sizing: border-box;
+        border-radius: 10px;
+        outline: 1.5px solid #3954a3;
+        border-radius: 10px;
+    }
+`;
 
 export default function ExchangeMain() {
     const [currencyData, setCurrencyData] = useState(null);
@@ -78,45 +139,45 @@ export default function ExchangeMain() {
     return (
         <>
             <ExchangeSection>
-                <div>
-                    <h1>환율 계산기</h1>
-                </div>
+                <ExLogo />
                 <Exdiv>
                     <FromEx>
                         <SelectEx id="from-currency" value={fromCurrency} onChange={handleFromCurrencyChange}>
                             <option id="달러(USD)" value="usd">
                                 달러(USD)
                             </option>
-                            <option value="eur">EUR</option>
-                            <option value="gbp">GBP</option>
+                            <option value="eur">유로(EUR)</option>
+                            <option value="gbp">파운드(GBP)</option>
                             <option id="원(KRW)" value="krw">
                                 원(KRW)
                             </option>
-                            <option value="jpy">JPY</option>
+                            <option value="jpy">엔(JPY)</option>
                         </SelectEx>
                         <label htmlFor="from-currency">를</label>
-                    </FromEx>
-                    <ToEx>
                         <SelectEx id="to-currency" value={toCurrency} onChange={handleToCurrencyChange}>
                             <option value="usd">달러(USD)</option>
-                            <option value="eur">EUR</option>
-                            <option value="gbp">GBP</option>
+                            <option value="eur">유로(EUR)</option>
+                            <option value="gbp">파운드(GBP)</option>
                             <option value="krw">원(KRW)</option>
-                            <option value="jpy">JPY</option>
+                            <option value="jpy">엔(JPY)</option>
                         </SelectEx>
                         <label htmlFor="to-currency">로</label>
-                    </ToEx>
+                    </FromEx>
+                    <ToEx></ToEx>
                 </Exdiv>
                 <ResultEx>
                     <label htmlFor="amount">계산할 금액:</label>
-                    <input id="amount" type="number" min="0" value={isAmount} onChange={handleAmountChange} />
+                    <InputM id="amount" type="number" min="0" value={isAmount} onChange={handleAmountChange} />
                 </ResultEx>
 
                 <ResultEx>
-                    {' '}
-                    {isAmount} {fromCurrency} 은/는<p> 결과 금액 : {convertCurrency()} </p>
-                    결과 단위: {toCurrency}
-                    <p>환율 정보 기준일 : {currencyData?.date}</p>
+                    {/*{isAmount} {fromCurrency} 은/는*/}
+                    <ResultCom>
+                        결과 금액(단위) : {convertCurrency()}({toCurrency})
+                    </ResultCom>
+
+                    <ResultCom>※본 서비스에서 제공되는 환율은 전일 기준입니다.</ResultCom>
+                    <ResultCom>환율 정보 제공 - Fawaz Ahmed</ResultCom>
                 </ResultEx>
             </ExchangeSection>
         </>

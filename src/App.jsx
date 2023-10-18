@@ -3,11 +3,12 @@ import { Outlet } from 'react-router-dom';
 import './App.css';
 import Navi from './components/Navi';
 import Navbar from './components/Navbar';
+import Header from './components/Header';
 
 function App() {
     return (
         <>
-            <Navbar />
+            <Header />
             {/*<Navi />*/}
             <Outlet />
         </>

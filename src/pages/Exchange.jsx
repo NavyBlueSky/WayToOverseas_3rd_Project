@@ -18,7 +18,7 @@ export default function Exchange() {
     return (
         <>
             <ExchangeSection>
-                <ExchangeBanner />
+                {/*                 <ExchangeBanner />*/}
                 <ExchangeMain />
             </ExchangeSection>
         </>
